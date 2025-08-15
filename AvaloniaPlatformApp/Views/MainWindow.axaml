@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaPlatformApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:AvaloniaPlatformApp.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaPlatformApp.Views.MainWindow"
+		x:Name="Champion"
+		SystemDecorations="Full"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Champion"
+        TransparencyLevelHint="AcrylicBlur"
+		Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True">
+	<Window.Styles>
+		<Style Selector="TitleBar:fullscreen">
+			<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+		</Style>
+	</Window.Styles>
+	<Panel Margin="{Binding #Champion.OffScreenMargin}">
+		<views:MainView />
+	</Panel>
+</Window>

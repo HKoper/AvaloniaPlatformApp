@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			  xmlns:vm="clr-namespace:AvaloniaPlatformApp.ViewModels"
+			  x:DataType="vm:HomeViewModel"
+             x:Class="AvaloniaPlatformApp.Views.HomeView">
+	<Design.DataContext>
+		<vm:HomeViewModel/>
+	</Design.DataContext>
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial BackgroundSource="Digger"
+                                             TintColor="{DynamicResource BackgroundColorKey}"
+                                             TintOpacity="1"
+                                             MaterialOpacity="0.65"/>
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+	  <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+             <!-- 显示屏 -->
+            <Border Background="#222" CornerRadius="8" Padding="16" Margin="0,0,0,10">
+                <TextBlock Text="{Binding PhoneNumber}" FontSize="28" Foreground="White" HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- 拨号盘 --> 
+            <UniformGrid Columns="3" Rows="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10">
+                <Button Content="1" Command="{Binding DialCommand}" CommandParameter="1" FontSize="24" Margin="5"/>
+                <Button Content="2" Command="{Binding DialCommand}" CommandParameter="2" FontSize="24" Margin="5"/>
+                <Button Content="3" Command="{Binding DialCommand}" CommandParameter="3" FontSize="24" Margin="5"/>
+                <Button Content="4" Command="{Binding DialCommand}" CommandParameter="4" FontSize="24" Margin="5"/>
+                <Button Content="5" Command="{Binding DialCommand}" CommandParameter="5" FontSize="24" Margin="5"/>
+                <Button Content="6" Command="{Binding DialCommand}" CommandParameter="6" FontSize="24" Margin="5"/>
+                <Button Content="7" Command="{Binding DialCommand}" CommandParameter="7" FontSize="24" Margin="5"/>
+                <Button Content="8" Command="{Binding DialCommand}" CommandParameter="8" FontSize="24" Margin="5"/>
+                <Button Content="9" Command="{Binding DialCommand}" CommandParameter="9" FontSize="24" Margin="5"/>
+                <Button Content="*" Command="{Binding DialCommand}" CommandParameter="*" FontSize="24" Margin="5"/>
+                <Button Content="0" Command="{Binding DialCommand}" CommandParameter="0" FontSize="24" Margin="5"/>
+                <Button Content="#" Command="{Binding DialCommand}" CommandParameter="#" FontSize="24" Margin="5"/>
+            </UniformGrid>
+
+             <!-- 拨号与删除按钮 --> 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+                <Button Content="拨号" Command="{Binding CallCommand}"  FontSize="20" Background="LimeGreen" Foreground="White" Width="100"/>
+                <Button Content="删除" Command="{Binding DeleteCommand}" FontSize="20" Background="Red" Foreground="White" Width="100"/>
+            </StackPanel> 
+        </StackPanel>
+
+	</Panel>
+</UserControl>
